@@ -1,26 +1,23 @@
-
-import './App.css';
-import FilterCard from './components/FilterCard';
-// import Context from './components/Context';
-// import Login from './components/Login';
-// import ProductCart from './components/ProductCart';
-// import Cart from './components/Cart';
-// import Login from './components/Login';
-// import Product from './components/Products';
-// import Validation from './components/Validation';
+import "./App.css";
+import React from "react";
+import FilterCard from "./components/FilterCard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductDetails from "./components/ProductDetails";
+import NoMatch from "./components/NoMatch";
+import CardDetails from "./components/CardDetails";
+import NavbarHeader from "./components/NavbarHeader";
 
 function App() {
   return (
-    <>
-    <div>
-      {/* <Login /> */}
-      {/* <Context />  */}
-      {/* <ProductCart /> */}
-      {/* <Product /> */}
-      <FilterCard />
-    </div>
-    
-    </>
+    <Router>
+      <NavbarHeader />
+      <Routes>
+        <Route path="/" element={<FilterCard />} />
+        <Route path="/productDetails" element={<ProductDetails />} />
+        <Route path="/cardDetails" element={<CardDetails />} />
+        <Route path="*" element={<NoMatch />} />
+      </Routes>
+    </Router>
   );
 }
 
